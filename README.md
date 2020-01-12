@@ -1,10 +1,10 @@
 # Action Recognition in Sports
 
 * The following project is on action recognition in sports videos , specially in cricket.
-* Our main goal is to predict the runs out of the shorts played by a batsman in live cricket videos.
+* Our main goal is to predict the runs out of the shots played by a batsman in live cricket videos.
 * We will be training our networks by the videos by taking the ground truth present on some famous cricket broadcasting sites such as cricinfo.com etc.
-* We are trying to segment the batsman in the live video and predict the quality of short played by the batsman and the run scored out of that ball.
-* While training the runs scored out of a particular ball will be fetched by web scraping the details from the broadcasting websites and the quality of short played by the batsman will be learned by using sentiment analysis in the audio data of the commentators who are considered as experts.
+* We are trying to segment the batsman in the live video and predict the quality of shot played by the batsman and the run scored out of that ball.
+* While training the runs scored out of a particular ball will be fetched by web scraping the details from the broadcasting websites and the quality of shot played by the batsman will be learned by using sentiment analysis in the audio data of the commentators who are considered as experts.
 # Segmentation 
 * Initially we tried the background subtraction for extracting the batsman in video but it did not give satisfactory results, which can be found out by implementing the two notebooks Background Subtraction 1 and 2.
 * We have used Mask RCNN for the segmentation of the batsman in the video.
