@@ -10,7 +10,7 @@
 * We have used Mask RCNN for the segmentation of the batsman in the video.
 * Open the notebook - MRCNN_Video for its implementation.
 * Download the pre-trained weights from the coco-dataset for using the weights for our model.
-* For our input video data.mp4 the output video out.mp4 was obtained after implementing Mask RCNN.
+* For our input video "data.mp4" the output video "out.mp4" was obtained after implementing Mask RCNN.
 
 # OCR building
 * We are trying to crop the video by extracting each frame out of it and trying to read the text given on the bottom part of our frames for optical character reading of the details about the batsman , the current score and over and delivery number.
