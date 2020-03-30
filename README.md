@@ -1,21 +1,46 @@
-# Action Recognition in Sports
+# Introduction
+Abstract: Even though the game of Cricket is the most popular sport in the country, the relative applications of artificial intelligence has been minimal in the past. We develop multiple use-cases of state of the art computer vision techniques over video data of cricket matches:
+* Firstly, batsman and bowler are segmented from the image using Mask-RCNN as an approach for instance level video object segmentation of the batsman and bowler.
+* Secondly, the scorecard is read from the video on a frame by frame basis using Optical Character Recognition. We then use this information to index the video by the index of the ball being bowled. ESPNCricInfo (a popular Cricket commentary website) was also scraped for expert commentary corresponding to the ball index.
+* Finally, we develop various preprocessing techniques for removing jargon (like crowd shots, commentary box shots, interviews, fielder shots etc.) from the video so that we have only the batsman playing a cricket shot in our video sample.
+* We thus built a dataset creation pipeline for cricket videos. The videos first go through preprocessing to remove jargon video segments, OCR indexes the frames to the ball index and data scrapper finds the corresponding expert commentary for that shot. The video goes through the batsman segmentation algorithm in the final stage.
+* We also develop a type-of-shot classifier using deep learning over the videos as a precursor to our broader goal which is detailed below.
+* The broad goal of the project is to, in the future, develop a performance analyzer of the batsman’s shot.
 
-* The following project is on action recognition in sports videos , specially in cricket.
-* Our main goal is to predict the type of shot(cover drive, straight drive, cut etc.) played by a batsman in live cricket videos.
-* We will be training our networks by the videos by taking the ground truth present on some famous cricket broadcasting sites such as cricinfo.com etc.
-* We are trying to segment the batsman in the live video and predict the quality of shot played by the batsman and the run scored out of that ball.
-* While training the runs scored out of a particular ball will be fetched by web scraping the details from the broadcasting websites and the quality of shot played by the batsman will be learned by using sentiment analysis in the audio data of the commentators who are considered as experts.
-# Segmentation 
-* Initially we tried the background subtraction for extracting the batsman in video but it did not give satisfactory results, which can be found out by implementing the two notebooks Background Subtraction 1 and 2.
-* We have used Mask RCNN for the segmentation of the batsman in the video.
-* Open the notebook - MRCNN_Video for its implementation.
-* Download the pre-trained weights from the coco-dataset for using the weights for our model.
-* For our input video "data.mp4" the output video "out.mp4" was obtained after implementing Mask RCNN.
-
-# OCR building
-* We are trying to crop the video by extracting each frame out of it and trying to read the text given on the bottom part of our frames for optical character reading of the details about the batsman , the current score and over and delivery number.
+# Methodology
+* Image Segmentation: We used Mask-RCNN which extends Faster-RCNN by adding a branch for predicting an object mask in parallel with the existing branch for bounding box recognition. The loss function for model is the total loss in doing the classification , generating bounding box and the mask. We used the pre-trained model trained on COCO dataset for the segmentation of the batsman and bowler for our videos.
+* OCR: We used package called Pytesseract to extract the text data from image. It is an optical character recognition tool for python and can recognize and read text embedded in images.
 
 
-The Speech to text conversion and the web scraping part is still in progress.
+
+
+* Data Scrapping: We used the selenium web driver to scrape the data (commentary and match stats) from online sources.
+* Preprocessing Techniques:(To extract the frames we wanted  in the video which can be fed in the network). When the batsmen is about to strike the ball, the pitch can be seen clearly in the front view. So, we used masking, and other Image processing techniques to detect the pitch. Then we can take footage of 4 seconds from the time the pitch is seen for the first time.
+* Dataset Creation: The overall data processing output is a CSV file containing following things: Initial frame(bowler delivering ball), Final Frame(End of a ball),OCR Text, Commentary, Ball no.(img: The final data generated.)
+
+
+
+
+
+
+* Deep Learning for shot classification: We are using ResNet-50 network to create the fixed dimensional feature vectors for each frame in the designated video section of 4 seconds or some fixed fames and then used these feature vectors to feed into the LSTM network and finally found classifications for the shot played. 
+
+# Results 
+* The pre-trained model for classifying our ROI(Region of Interest) has shown a very good segmentation mask as well as the bounding box prediction for the batsman and the bowler present on the pitch
+  
+  
+  
+* Frame when the bowler is about to bowl the ball and masked output.
+  
+
+
+
+
+# Successive Work:
+* Currently we are trying to create the dataset for input to the ResNet-50-LSTM network manually by cropping the frames for each shot played , we are collecting about 300 shots for each of our five classes of shots as training data. The video frame number has been working well on one type of camera in a particular match played which may not work so well in general cases.
+* The ResNet-50-LSTM notebook can be adjusted for running on a single video shot to extract features and feed it into LSTM block which we will be updating soon for running over all class of shots after creation of dataset.
+
+
+
 
 
