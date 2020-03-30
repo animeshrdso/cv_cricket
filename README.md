@@ -46,7 +46,8 @@ Abstract: Even though the game of Cricket is the most popular sport in the count
 # Successive Work:
 * Currently we are trying to create the dataset for input to the ResNet-50-LSTM network manually by cropping the frames for each shot played , we are collecting about 300 shots for each of our five classes of shots as training data. The video frame number has been working well on one type of camera in a particular match played which may not work so well in general cases.
 * The ResNet-50-LSTM notebook can be adjusted for running on a single video shot to extract features and feed it into LSTM block which we will be updating soon for running over all class of shots after creation of dataset.
-* The next work will be the classification of the shots played by a batsman which will be the output of the ResNet-50-LSTM network.
+* The next work will be the classification of the shots played by a batsman which will be the output of the ResNet-50-LSTM network.Note:ResNet-50-LSTM notebook has to be updated in further time.
+
 
 
 
