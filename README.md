@@ -8,7 +8,7 @@ Abstract: Even though the game of Cricket is the most popular sport in the count
 * The broad goal of the project is to, in the future, develop a performance analyzer of the batsman’s shot.
 
 # Methodology
-* Image Segmentation: We used Mask-RCNN which extends Faster-RCNN by adding a branch for predicting an object mask in parallel with the existing branch for bounding box recognition. The loss function for model is the total loss in doing the classification , generating bounding box and the mask. We used the pre-trained model trained on COCO dataset for the segmentation of the batsman and bowler for our videos.
+* Image Segmentation: We used Mask-RCNN which extends Faster-RCNN by adding a branch for predicting an object mask in parallel with the existing branch for bounding box recognition. The loss function for model is the total loss in doing the classification , generating bounding box and the mask. We used the pre-trained model trained on COCO dataset for the segmentation of the batsman and bowler for our videos. Initially background subtraction method was also tried (Background Subtractor 2 notebook) but the results were not godd due to movement in the positions of camera therefore we approached Mask-RCNN.(out.mp4 was created out of data.mp4 using Mask-RCNN)
 * OCR: We used package called Pytesseract to extract the text data from image. It is an optical character recognition tool for python and can recognize and read text embedded in images.
 
 ![image](https://user-images.githubusercontent.com/42550496/77932162-cad2e300-72ca-11ea-8677-96e6988ab925.png)
@@ -46,6 +46,7 @@ Abstract: Even though the game of Cricket is the most popular sport in the count
 # Successive Work:
 * Currently we are trying to create the dataset for input to the ResNet-50-LSTM network manually by cropping the frames for each shot played , we are collecting about 300 shots for each of our five classes of shots as training data. The video frame number has been working well on one type of camera in a particular match played which may not work so well in general cases.
 * The ResNet-50-LSTM notebook can be adjusted for running on a single video shot to extract features and feed it into LSTM block which we will be updating soon for running over all class of shots after creation of dataset.
+* The next work will be the classification of the shots played by a batsman which will be the output of the ResNet-50-LSTM network.
 
 
 
