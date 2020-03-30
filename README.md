@@ -11,6 +11,8 @@ Abstract: Even though the game of Cricket is the most popular sport in the count
 * Image Segmentation: We used Mask-RCNN which extends Faster-RCNN by adding a branch for predicting an object mask in parallel with the existing branch for bounding box recognition. The loss function for model is the total loss in doing the classification , generating bounding box and the mask. We used the pre-trained model trained on COCO dataset for the segmentation of the batsman and bowler for our videos.
 * OCR: We used package called Pytesseract to extract the text data from image. It is an optical character recognition tool for python and can recognize and read text embedded in images.
 
+![image](https://user-images.githubusercontent.com/42550496/77932162-cad2e300-72ca-11ea-8677-96e6988ab925.png)
+
 
 
 
@@ -18,7 +20,7 @@ Abstract: Even though the game of Cricket is the most popular sport in the count
 * Preprocessing Techniques:(To extract the frames we wanted  in the video which can be fed in the network). When the batsmen is about to strike the ball, the pitch can be seen clearly in the front view. So, we used masking, and other Image processing techniques to detect the pitch. Then we can take footage of 4 seconds from the time the pitch is seen for the first time.
 * Dataset Creation: The overall data processing output is a CSV file containing following things: Initial frame(bowler delivering ball), Final Frame(End of a ball),OCR Text, Commentary, Ball no.(img: The final data generated.)
 
-
+![image](https://user-images.githubusercontent.com/42550496/77932180-d0c8c400-72ca-11ea-808b-71e8e0d5f6d8.png)
 
 
 
