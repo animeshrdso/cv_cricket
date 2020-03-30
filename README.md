@@ -27,11 +27,16 @@ Abstract: Even though the game of Cricket is the most popular sport in the count
 
 # Results 
 * The pre-trained model for classifying our ROI(Region of Interest) has shown a very good segmentation mask as well as the bounding box prediction for the batsman and the bowler present on the pitch
-  
+
+![image](https://user-images.githubusercontent.com/42550496/77931936-76c7fe80-72ca-11ea-899f-32cb895fccbc.png)
+![image](https://user-images.githubusercontent.com/42550496/77931973-80e9fd00-72ca-11ea-9e62-64d1f1dc596e.png)
+
   
   
 * Frame when the bowler is about to bowl the ball and masked output.
   
+![image](https://user-images.githubusercontent.com/42550496/77931990-85aeb100-72ca-11ea-9b63-62cc49aa7805.png)
+![image](https://user-images.githubusercontent.com/42550496/77932006-8b0bfb80-72ca-11ea-8d0c-e59e579062e4.png)
 
 
 
